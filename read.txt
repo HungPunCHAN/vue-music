@@ -1,0 +1,81 @@
+﻿bable-runtime  对es语法进行转义
+fastclick   解决移动端点击300毫秒延迟的问题
+babel-polyfill   对es6api转义
+
+js中的正则格式是这样的，/正则表达式/匹配模式，匹配模式当然是可选的，\W表示非单词字符(0-9,a-z,A-Z,_)，+表示一个或多个，/g表示使用全局匹配模式，全局的特点是每次匹配完,下次匹配的下标就是下一位
+
+map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。
+
+
+createElement(tag,{},String)
+createElement看名字像动态创建dom节点（节点vue里面也叫VNode）的过程
+createElement(
+  // {String | Object | Function}
+  // 一个 HTML 标签，组件设置，或一个函数
+  // 必须 Return 上述其中一个
+  'div',
+  // {Object}
+  // 一个对应属性的数据对象
+  // 您可以在 template 中使用.可选项.
+  {
+    // (下一章，将详细说明相关细节)
+  },
+  // {String | Array}
+  // 子节点(VNodes). 可选项.
+  [
+    createElement('h1', 'hello world'),
+    createElement(MyComponent, {
+      props: {
+        someProp: 'foo'
+      }
+    }),
+    'bar'
+  ]
+)
+
+
+使用 v-on 绑定自定义事件
+每个 Vue 实例都实现了事件接口，即：
+使用 $on(eventName) 监听事件
+使用 $emit(eventName) 触发事件
+另外，父组件可以在使用子组件的地方直接用 v-on 来监听子组件触发的事件。
+不能用 $on 侦听子组件释放的事件，而必须在模板里直接用 v-on 绑定
+
+
+slot 插槽  除非子组件模板包含至少一个 <slot> 
+插口，否则父组件的内容将会被丢弃。当子组件模板只有一个没有属性的插槽时，父组件传入的整个内容片段将插入到插槽所在的
+ DOM 位置，并替换掉插槽标签本身。
+
+ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例
+
+
+vue-router 编程式导航
+router.push(location, onComplete?, onAbort?)
+想要导航到不同的 URL，则使用 router.push 方法。这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。
+
+
+vuex  状态管理模式
+创建store目录，在store文件夹下创建
+ index.js      // 文件都会汇聚到这个地方来,也是创建store对象的地方,就像store的入口一样
+actions.js      //存放vuex的核心处理函数
+getters.js      //工具接口为了方便构建全局state自定义方法
+mutations.js      //改版store中各种状态的地方
+state.js       //创建state.js保存顶层的数据
+
+state  Vuex store 实例的根 state 对象。
+如果你传入返回一个对象的函数，其返回的对象会被用作根 state。这在你想要重用 state 对象，尤其是对于重用 module 来说非常有用。
+mutations  在 store 上注册 mutation，处理函数总是接受 state 作为第一个参数（如果定义在模块中，则为模块的局部状态），payload 作为第二个参数（可选）。
+actions   在 store 上注册 action。处理函数总是接受 context 作为第一个参数，payload 作为第二个参数（可选）。
+getters   在 store 上注册 getter，getter 方法接受以下参数：
+  state,     // 如果在模块中定义则为模块的局部状态
+  getters,   // 等同于 store.getters
+
+
+  mixins 选项接受一个混入对象的数组。这些混入实例对象可以像正常的实例对象一样包含选项，
+  他们将在 Vue.extend() 里最终选择使用相同的选项合并逻辑合并。
+  举例：如果你的混入包含一个钩子而创建组件本身也有一个，两个函数将被调用。
+  Mixin 钩子按照传入顺序依次调用，并在调用组件自身的钩子之前被调用。 
+
+
+移动端调试工具
+weinre  browsersync  eruda

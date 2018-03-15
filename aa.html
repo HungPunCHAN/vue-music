@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var a=[1,2,3,4,5,6,8,7];
+  var b=[1,2,3];
+  var d = null;
+  b.forEach(function(item){
+    a = a.filter(function(c){
+      console.log(c,item, c==item)
+      return (c==item) ? false : true
+    })
+  });
+  console.log(a);
+  //console.log(d);
+</script>
+</body>
+</html>
